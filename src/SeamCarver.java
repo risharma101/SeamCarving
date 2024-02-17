@@ -229,17 +229,19 @@ public class SeamCarver {
     public static void main(String[] args) {
 
         Picture p = new Picture("testFiles//chameleon.png");
+        int rowsToRemove = 100;
+        int colsToRemove = 300;
 
         StdOut.printf("image is %d columns by %d rows\n", p.width(), p.height());
 
         SeamCarver sc = new SeamCarver(p);
 
         Stopwatch sw = new Stopwatch();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < rowsToRemove; i++) {
             int[] seam = sc.findHorizontalSeam();
             sc.removeHorizontalSeam(seam);
         }
-        for (int i = 0; i < 300; i++) {
+        for (int i = 0; i < colsToRemove; i++) {
             int[] seam = sc.findVerticalSeam();
             sc.removeVerticalSeam(seam);
         }
